@@ -1,0 +1,50 @@
+/* Add these animations to style.css if you want to separate files */
+
+.glass-morphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.neon-glow {
+    animation: neonPulse 2s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+    0%, 100% { text-shadow: 0 0 10px var(--primary); }
+    50% { text-shadow: 0 0 20px var(--primary), 0 0 30px var(--primary); }
+}
+
+.gradient-border {
+    position: relative;
+    border: double 1px transparent;
+    background-image: linear-gradient(var(--card-bg), var(--card-bg)), 
+                      radial-gradient(circle at top left, var(--primary), var(--secondary));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+/* Data stream animation */
+.data-stream {
+    position: relative;
+    overflow: hidden;
+}
+
+.data-stream::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255,255,255,0.1), 
+                transparent);
+    animation: stream 3s infinite;
+}
+
+@keyframes stream {
+    to { left: 100%; }
+}
